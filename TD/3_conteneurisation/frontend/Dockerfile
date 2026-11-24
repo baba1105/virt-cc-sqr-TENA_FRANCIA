@@ -1,4 +1,9 @@
-COPY index.html /usr/share/nginx/html/
+# Image de base : Nginx
+FROM nginx:latest
 
-# Si vous avez d'autres fichiers ou dossier, copier les également
-COPY style.css /usr/share/nginx/html
+# Copie nos fichiers HTML et CSS dans le conteneur
+COPY index.html /usr/share/nginx/html/
+COPY style.css /usr/share/nginx/html/
+
+# Expose le port 80 pour le serveur web
+EXPOSE 80
