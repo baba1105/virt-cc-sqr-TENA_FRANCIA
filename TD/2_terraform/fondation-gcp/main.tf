@@ -9,7 +9,8 @@ resource "google_compute_network" "vpc_network" {
 # 2. Ajouter ensuite une instance de Compute Engine dans ce VPC (google_compute_instance).
 
 resource "google_compute_instance" "default" {
-    name         = "my-instance"
+    count        = 2                                # créer 2 machines identiques
+    name         = "my-instance-${count.index}"     # ajout du parametre count.index pour les differenciers
     machine_type = "n2-standard-2"
     zone         = "us-central1-a"
 
