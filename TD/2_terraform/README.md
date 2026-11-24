@@ -13,7 +13,7 @@ Terraform used the selected providers to generate the following execution plan. 
 
 Terraform will perform the following actions:
 
-  # google_compute_instance.default will be created
+  # google_compute_instance.default[0] will be created
   + resource "google_compute_instance" "default" {
       + can_ip_forward       = false
       + cpu_platform         = (known after apply)
@@ -30,7 +30,79 @@ Terraform will perform the following actions:
       + machine_type         = "n2-standard-2"
       + metadata_fingerprint = (known after apply)
       + min_cpu_platform     = (known after apply)
-      + name                 = "my-instance"
+      + name                 = "my-instance-0"
+      + project              = "polytech-dijon"
+      + self_link            = (known after apply)
+      + tags_fingerprint     = (known after apply)
+      + terraform_labels     = {
+          + "goog-terraform-provisioned" = "true"
+        }
+      + zone                 = "us-central1-a"
+
+      + boot_disk {
+          + auto_delete                = true
+          + device_name                = (known after apply)
+          + disk_encryption_key_sha256 = (known after apply)
+          + guest_os_features          = (known after apply)
+          + kms_key_self_link          = (known after apply)
+          + mode                       = "READ_WRITE"
+          + source                     = (known after apply)
+
+          + initialize_params {
+              + architecture           = (known after apply)
+              + image                  = "debian-cloud/debian-11"
+              + labels                 = (known after apply)
+              + provisioned_iops       = (known after apply)
+              + provisioned_throughput = (known after apply)
+              + resource_policies      = (known after apply)
+              + size                   = (known after apply)
+              + snapshot               = (known after apply)
+              + type                   = (known after apply)
+            }
+        }
+
+      + confidential_instance_config (known after apply)
+
+      + guest_accelerator (known after apply)
+
+      + network_interface {
+          + igmp_query                  = (known after apply)
+          + internal_ipv6_prefix_length = (known after apply)
+          + ipv6_access_type            = (known after apply)
+          + ipv6_address                = (known after apply)
+          + name                        = (known after apply)
+          + network                     = "google_compute_network.vpc_network.id"
+          + network_attachment          = (known after apply)
+          + network_ip                  = (known after apply)
+          + parent_nic_name             = (known after apply)
+          + stack_type                  = (known after apply)
+          + subnetwork                  = (known after apply)
+          + subnetwork_project          = (known after apply)
+        }
+
+      + reservation_affinity (known after apply)
+
+      + scheduling (known after apply)
+    }
+
+  # google_compute_instance.default[1] will be created
+  + resource "google_compute_instance" "default" {
+      + can_ip_forward       = false
+      + cpu_platform         = (known after apply)
+      + creation_timestamp   = (known after apply)
+      + current_status       = (known after apply)
+      + deletion_policy      = "DELETE"
+      + deletion_protection  = false
+      + effective_labels     = {
+          + "goog-terraform-provisioned" = "true"
+        }
+      + id                   = (known after apply)
+      + instance_id          = (known after apply)
+      + label_fingerprint    = (known after apply)
+      + machine_type         = "n2-standard-2"
+      + metadata_fingerprint = (known after apply)
+      + min_cpu_platform     = (known after apply)
+      + name                 = "my-instance-1"
       + project              = "polytech-dijon"
       + self_link            = (known after apply)
       + tags_fingerprint     = (known after apply)
@@ -195,5 +267,5 @@ Terraform will perform the following actions:
         }
     }
 
-Plan: 4 to add, 0 to change, 0 to destroy.
+Plan: 5 to add, 0 to change, 0 to destroy.
 ```
